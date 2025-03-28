@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tajemná Caesarova šifra</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #39ff14;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .cipher {
+      font-size: 1.5em;
+      margin: 30px auto;
+      padding: 20px;
+      border: 2px dashed #555;
+      background: rgba(20, 20, 20, 0.8);
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      font-size: 1.2em;
+      border: none;
+      background: #1a1a1a;
+      color: #39ff14;
+      box-shadow: 0 0 10px #39ff14;
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #39ff14;
+      cursor: pointer;
+      box-shadow: 0 0 10px #39ff14;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #333;
+    }
+    .alphabet-table {
+      margin: 40px auto;
+      width: 80%;
+      max-width: 600px;
+      border-collapse: collapse;
+    }
+    .alphabet-table th,
+    .alphabet-table td {
+      border: 1px solid #555;
+      padding: 10px;
+      font-size: 1.1em;
+    }
+    .alphabet-table th {
+      background: #1a1a1a;
+      color: #39ff14;
+    }
+    .alphabet-table td {
+      background: #0d0d0d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tajemná Caesarova šifra</h1>
+  <p>Rozlušti následující šifru. Použij Caesarovu metodu (posun o 3) a zadej správné heslo:</p>
+  <div class="cipher">wklv lv mxvw d whvw</div>
+  <input type="text" id="answer" placeholder="Zadej heslo zde">
+  <br>
+  <button onclick="checkAnswer()">Zkontrolovat</button>
+
+  <h2>Abeceda</h2>
+  <table class="alphabet-table">
+    <tr>
+      <th>Písmeno</th>
+      <th>Index (0-based)</th>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>D</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>I</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>J</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>K</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>N</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>O</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Q</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>R</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>U</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>V</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>W</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>X</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>Y</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Z</td>
+      <td>25</td>
+    </tr>
+  </table>
+
+  <script>
+    function checkAnswer() {
+      const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+      const correctAnswer = "this is just a test";
+      if (userAnswer === correctAnswer) {
+        alert("Správně! Přecházíme na další úkol.");
+        window.location.href = "ukol2.html";
+      } else {
+        alert("Špatné heslo, zkus to znovu!");
+      }
+    }
+  </script>
+</body>
+</html>

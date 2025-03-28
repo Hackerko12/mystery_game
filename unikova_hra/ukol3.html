@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tajemný binární úkol</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #39ff14;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 2em;
+      margin-top: 40px;
+      text-shadow: 0 0 8px #39ff14;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+    .task, .explanation {
+      font-size: 1.5em;
+      margin: 30px auto;
+      padding: 20px;
+      border: 2px dashed #555;
+      background: rgba(20, 20, 20, 0.8);
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      font-size: 1.2em;
+      border: none;
+      background: #1a1a1a;
+      color: #39ff14;
+      box-shadow: 0 0 10px #39ff14;
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #39ff14;
+      cursor: pointer;
+      box-shadow: 0 0 10px #39ff14;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #333;
+    }
+    /* Skryté vysvětlení s animací */
+    .explanation {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .explanation.visible {
+      display: block;
+      opacity: 1;
+    }
+    /* Styl pro tabulku s binárním číslem a exponenty */
+    .binary-table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      font-size: 1.8em;
+    }
+    .binary-table td {
+      padding: 5px;
+      text-align: center;
+    }
+    .exponent {
+      font-size: 0.8em;
+      color: #39ff14;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tajemný binární úkol</h1>
+  <p>Převeď následující binární číslo do desítkové soustavy:</p>
+  <div class="task">
+    101101
+  </div>
+  <input type="text" id="answer" placeholder="Zadej odpověď">
+  <br>
+  <button onclick="checkAnswer()">Odeslat</button>
+  
+  <h2>Potřebuješ pomoc?</h2>
+  <button onclick="showExplanation()">Zobrazit vysvětlení</button>
+  
+  <div class="explanation" id="explanation">
+    <p>
+      V binární soustavě každá pozice představuje mocninu čísla 2. <br>
+      Podívejme se na příklad s číslem:
+    </p>
+    
+    <table class="binary-table">
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td class="exponent">2⁴</td>
+        <td class="exponent">2³</td>
+        <td class="exponent">2²</td>
+        <td class="exponent">2¹</td>
+        <td class="exponent">2⁰</td>
+      </tr>
+    </table>
+
+    <p>
+      Výpočet:
+      <br>
+      <em>1 × 2⁴</em> + <em>1 × 2³</em> + <em>0 × 2²</em> + <em>1 × 2¹</em> + <em>0 × 2⁰</em>
+      <br>
+      = 16 + 8 + 0 + 2 + 0 = 26
+    </p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const userAnswer = document.getElementById('answer').value.trim();
+      // Správná odpověď je 45
+      if (userAnswer === "45") {
+        alert("Správně! Přecházíme na další úkol.");
+        window.location.href = "ukol4.html";
+      } else {
+        alert("Špatná odpověď, zkus to znovu!");
+      }
+    }
+
+    function showExplanation() {
+      document.getElementById('explanation').classList.add("visible");
+    }
+  </script>
+</body>
+</html>

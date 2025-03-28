@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tajemná hádanka – Souborové formáty</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #39ff14;
+      margin-bottom: 20px;
+    }
+    .puzzle {
+      font-size: 1.5em;
+      margin: 30px auto;
+      padding: 20px;
+      border: 2px dashed #555;
+      background: rgba(20, 20, 20, 0.8);
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+    }
+    .options {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #39ff14;
+      cursor: pointer;
+      box-shadow: 0 0 10px #39ff14;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #333;
+    }
+    /* Skrytá nápověda */
+    .help-box {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      font-size: 1.2em;
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px dashed #555;
+      background: rgba(20, 20, 20, 0.8);
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+    }
+    .visible {
+      display: block !important;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tajemná hádanka – Souborové formáty</h1>
+  
+  <p>Uhodni správný formát souboru podle této otázky:</p>
+  
+  <div class="puzzle">
+    <p><strong>"Který formát se používá pro textové dokumenty?"</strong></p>
+  </div>
+
+  <div class="options">
+    <p>A) mp3</p>
+    <p>B) txt</p>
+    <p>C) jpg</p>
+  </div>
+
+  <input type="text" id="answer" placeholder="Zadej odpověď (A, B, nebo C)">
+  <br>
+  <button onclick="checkAnswer()">Odeslat</button>
+
+  <h2>Potřebuješ pomoc?</h2>
+  <button onclick="showHint()">Zobrazit nápovědu</button>
+  
+  <div class="help-box" id="hintBox">
+    <p><strong>Nápověda:</strong> Tento formát se používá k ukládání obyčejného textu, bez formátování.</p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+      if (userAnswer === "b") {
+        alert("Správně! Přecházíme na další úkol.");
+        window.location.href = "ukol6.html";
+      } else {
+        alert("Špatná odpověď, zkus to znovu!");
+      }
+    }
+
+    function showHint() {
+      document.getElementById('hintBox').classList.add("visible");
+    }
+  </script>
+</body>
+</html>

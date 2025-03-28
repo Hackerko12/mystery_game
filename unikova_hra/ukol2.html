@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tajemná logická hádanka</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #39ff14;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .puzzle {
+      font-size: 1.5em;
+      margin: 30px auto;
+      padding: 20px;
+      border: 2px dashed #555;
+      background: rgba(20, 20, 20, 0.8);
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      font-size: 1.2em;
+      border: none;
+      background: #1a1a1a;
+      color: #39ff14;
+      box-shadow: 0 0 10px #39ff14;
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #39ff14;
+      cursor: pointer;
+      box-shadow: 0 0 10px #39ff14;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #333;
+    }
+    /* Styl pro tlačítko nápovědy */
+    .hint-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #39ff14;
+      padding: 5px 10px;
+      cursor: pointer;
+      box-shadow: 0 0 8px #39ff14;
+    }
+    /* Kontejner pro nápovědu, skrytý ve výchozím stavu */
+    .hint {
+      display: none;
+      position: fixed;
+      top: 50px;
+      right: 10px;
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid #333;
+      padding: 10px;
+      max-width: 300px;
+      box-shadow: 0 0 10px #39ff14;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <button class="hint-btn" onclick="toggleHint()">Nápověda</button>
+  <div class="hint" id="hintBox">
+    <p><strong>Nápověda:</strong> Každá LED má 2 stavy (zapnuta/vypnuta), takže celkový počet stavů je 2 na 8, tedy 2⁸.</p>
+  </div>
+
+  <h1>Tajemná logická hádanka</h1>
+  <p>Vyřeš následující hádanku:</p>
+  <div class="puzzle">
+    Na palubní desce jsou 8 LED diod. Každá LED může být zapnutá nebo vypnutá.<br>
+    Kolik různých stavů může mít tato deska?
+  </div>
+  <input type="text" id="answer" placeholder="Zadej odpověď">
+  <br>
+  <button onclick="checkAnswer()">Odeslat</button>
+
+  <script>
+    function toggleHint() {
+      var hintBox = document.getElementById('hintBox');
+      // Přepínání zobrazení nápovědy
+      hintBox.style.display = (hintBox.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function checkAnswer() {
+      const userAnswer = document.getElementById('answer').value.trim();
+      // Správná odpověď je 256
+      if (userAnswer === "256") {
+        alert("Správně! Přecházíme na další úkol.");
+        window.location.href = "ukol3.html";
+      } else {
+        alert("Špatná odpověď, zkus to znovu!");
+      }
+    }
+  </script>
+</body>
+</html>

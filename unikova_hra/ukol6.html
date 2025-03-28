@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tajemný úkol</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #39ff14;
+    }
+
+    .task {
+      margin-top: 30px;
+      font-size: 1.5em;
+      padding: 20px;
+      background: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .hint {
+      display: none;
+      margin-top: 20px;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #39ff14;
+      color: #121212;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2b8d2b;
+    }
+
+    .answer-input {
+      padding: 10px;
+      margin-top: 20px;
+      font-size: 1.2em;
+      background-color: #222;
+      border: 2px solid #39ff14;
+      color: #e0e0e0;
+    }
+
+    .hint-button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 1em;
+      background-color: #e0e0e0;
+      color: #121212;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hint-button:hover {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tajemný úkol</h1>
+
+  <div class="task">
+    <p>Najdi heslo v kódu této stránky. Je ukryté v komentářích. Věříme, že to zvládneš.</p>
+
+    <input class="answer-input" type="text" id="answer" placeholder="Zadejte heslo">
+    <button onclick="checkAnswer()">Odeslat</button>
+
+    <button class="hint-button" onclick="showHint()">Napověda</button>
+    <div class="hint">
+      <p>Napověda: Zkus hledat v komentářích HTML kódu.</p>
+      <p><strong>Tip: Pokud si nejsi jistý, klikni pravým tlačítkem myši a vyber "Zobrazit zdrojový kód". Heslo najdeš tam.</strong></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById('answer').value.trim().toLowerCase();
+      if (answer === "final boss") {
+        alert("Správně! Pokračuješ na další úkol.");
+        window.location.href = "konec.html"; // Přesměrování na další úkol
+      } else {
+        alert("Špatná odpověď, zkus to znovu.");
+      }
+    }
+
+    function showHint() {
+      document.querySelector('.hint').style.display = 'block';
+    }
+  </script>
+
+  <!-- Tento komentář obsahuje tajné heslo: final boss -->
+  <!-- Pokud hledáte správně, odpověď naleznete ve zdrojovém kódu -->
+
+</body>
+</html>
